@@ -18,9 +18,11 @@ package sandesha2.samples.userguide;
 
 import java.io.File;
 
-import javax.activation.DataHandler;
-import javax.activation.FileDataSource;
+import jakarta.activation.DataHandler;
+import jakarta.activation.FileDataSource;
 
+import org.apache.axiom.blob.Blob;
+import org.apache.axiom.util.activation.DataHandlerUtils;
 import org.apache.axiom.om.OMAbstractFactory;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -123,8 +125,9 @@ public class MTOMPingClient {
 		}
 		
 	    DataHandler dataHandler = new DataHandler(dataSource);
+		Blob blob = DataHandlerUtils.toBlob(dataHandler);
 
-	    OMText textData = fac.createOMText(dataHandler, true);
+	    OMText textData = fac.createOMText(blob, true);
 	    attachmentElem.addChild(textData);
 		
 		pingElem.addChild(attachmentElem);

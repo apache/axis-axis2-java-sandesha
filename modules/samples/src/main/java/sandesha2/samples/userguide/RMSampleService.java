@@ -23,9 +23,10 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.activation.DataHandler;
+import jakarta.activation.DataHandler;
 import javax.xml.namespace.QName;
 
+import org.apache.axiom.util.activation.DataHandlerUtils;
 import org.apache.axiom.om.OMAbstractFactory;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -96,7 +97,7 @@ public class RMSampleService {
 		OMText binaryElem = (OMText) attachmentElem.getFirstOMChild();
 
 		binaryElem.setOptimize(true);
-		DataHandler dataHandler = (DataHandler) binaryElem.getDataHandler();
+		DataHandler dataHandler = DataHandlerUtils.getDataHandler(binaryElem.getBlob());
 
 		try {
 			

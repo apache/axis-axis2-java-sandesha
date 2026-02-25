@@ -16,6 +16,8 @@ package org.apache.sandesha2.interop.rm1_1_clients;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Properties;
 
 import javax.xml.namespace.QName;
@@ -24,7 +26,6 @@ import org.apache.axiom.om.OMAbstractFactory;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
-import org.apache.axiom.om.impl.builder.StAXOMBuilder;
 import org.apache.axiom.soap.SOAPBody;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.Constants;
@@ -44,7 +45,6 @@ import org.apache.sandesha2.client.SandeshaClient;
 import org.apache.sandesha2.client.SandeshaClientConstants;
 import org.apache.sandesha2.interop.RMInteropServiceCallbackHandlerImpl;
 import org.apache.sandesha2.interop.RMInteropServiceStub;
-import org.apache.sandesha2.interop.rm1_1_clients.Scenario_2_1.TestCallback;
 import org.apache.sandesha2.util.SandeshaUtil;
 import org.tempuri.EchoString;
 import org.tempuri.EchoStringRequestBodyType;
@@ -306,7 +306,8 @@ public class Scenario_4_2 {
 	}
     
     private static Policy loadPolicy(String xmlPath) throws Exception {
-        StAXOMBuilder builder = new StAXOMBuilder(xmlPath);
-        return PolicyEngine.getPolicy(builder.getDocumentElement());
+		try (InputStream inputStream = Files.newInputStream(Paths.get(xmlPath))) {
+            return PolicyEngine.getPolicy(inputStream);
+        }
     }
 }

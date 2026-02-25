@@ -119,7 +119,7 @@ public class InvokerBean extends RMBean {
 	}
 
 	/**
-	 * @param sequenceID
+	 * @param sequenceId
 	 *            The sequenceID to set.
 	 */
 	public void setSequenceID(String sequenceId) {

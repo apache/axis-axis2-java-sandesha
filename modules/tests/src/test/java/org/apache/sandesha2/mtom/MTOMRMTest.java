@@ -20,9 +20,10 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 
-import javax.activation.DataHandler;
+import jakarta.activation.DataHandler;
 import javax.xml.namespace.QName;
 
+import org.apache.axiom.util.activation.DataHandlerUtils;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMText;
 import org.apache.axiom.soap.SOAPBody;
@@ -203,7 +204,7 @@ public class MTOMRMTest extends SandeshaTestCase {
 		OMText binaryElem = (OMText) attachmentElem.getFirstOMChild();
 
 		binaryElem.setOptimize(true);
-		DataHandler dataHandler = (DataHandler) binaryElem.getDataHandler();
+		DataHandler dataHandler = DataHandlerUtils.getDataHandler(binaryElem.getBlob());
 
 		try {
 			File destinationFile = new File(DESTINATION_IMAGE_FILE);

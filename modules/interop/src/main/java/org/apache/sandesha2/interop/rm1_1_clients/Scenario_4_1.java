@@ -18,6 +18,8 @@ package org.apache.sandesha2.interop.rm1_1_clients;
 
 import java.io.File;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Properties;
 
 
@@ -25,7 +27,6 @@ import org.apache.axiom.om.OMAbstractFactory;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
-import org.apache.axiom.om.impl.builder.StAXOMBuilder;
 import org.apache.axiom.soap.SOAP12Constants;
 import org.apache.axis2.Constants;
 import org.apache.axis2.addressing.EndpointReference;
@@ -240,8 +241,9 @@ public class Scenario_4_1 {
     }
     
     private static Policy loadPolicy(String xmlPath) throws Exception {
-        StAXOMBuilder builder = new StAXOMBuilder(xmlPath);
-        return PolicyEngine.getPolicy(builder.getDocumentElement());
+        try (InputStream inputStream = Files.newInputStream(Paths.get(xmlPath))) {
+            return PolicyEngine.getPolicy(inputStream);
+        }
     }
 
 }

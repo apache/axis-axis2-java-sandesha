@@ -19,7 +19,6 @@
 
 package org.apache.sandesha2.msgprocessors;
 
-import java.util.Collection;
 import java.util.Iterator;
 
 import org.apache.axiom.om.OMElement;
@@ -34,7 +33,7 @@ import org.apache.axis2.context.OperationContextFactory;
 import org.apache.axis2.context.ServiceContext;
 import org.apache.axis2.description.AxisOperation;
 import org.apache.axis2.engine.AxisEngine;
-import org.apache.axis2.transport.TransportUtils;
+import org.apache.axis2.kernel.TransportUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.sandesha2.RMMsgContext;
@@ -44,9 +43,7 @@ import org.apache.sandesha2.i18n.SandeshaMessageHelper;
 import org.apache.sandesha2.i18n.SandeshaMessageKeys;
 import org.apache.sandesha2.policy.SandeshaPolicyBean;
 import org.apache.sandesha2.storage.StorageManager;
-import org.apache.sandesha2.storage.beanmanagers.SenderBeanMgr;
 import org.apache.sandesha2.storage.beans.RMDBean;
-import org.apache.sandesha2.storage.beans.SenderBean;
 import org.apache.sandesha2.util.AcknowledgementManager;
 import org.apache.sandesha2.util.FaultManager;
 import org.apache.sandesha2.util.MsgInitializer;
@@ -86,7 +83,7 @@ public class AckRequestedProcessor extends WSRMMessageSender {
 
 	/**
 	 * 
-	 * @param msgContext
+	 * @param rmMsgCtx
 	 * @param soapHeader
 	 * @param ackRequested
 	 * @return true if the msg context was paused
@@ -223,7 +220,7 @@ public class AckRequestedProcessor extends WSRMMessageSender {
 	 * This is used to capture AckRequest messages send by the SandeshaClient.
 	 * This will send that message using the Sandesha2 Sender.
 	 * 
-	 * @param rmMsgContext
+	 * @param ackRequestRMMsg
 	 */
 	public boolean processOutgoingAckRequestMessage (RMMsgContext ackRequestRMMsg) throws AxisFault {
 

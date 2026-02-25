@@ -130,17 +130,17 @@
 				<ramp:passwordCallbackClass>org.apache.sandesha2.interop.PWCallback</ramp:passwordCallbackClass>
 				
 				<ramp:signatureCrypto>
-					<ramp:crypto provider="org.apache.ws.security.components.crypto.Merlin">
-						<ramp:property name="org.apache.ws.security.crypto.merlin.keystore.type">JKS</ramp:property>
-						<ramp:property name="org.apache.ws.security.crypto.merlin.file">interop/conf/store.jks</ramp:property>
-						<ramp:property name="org.apache.ws.security.crypto.merlin.keystore.password">password</ramp:property>
+					<ramp:crypto provider="org.apache.wss4j.common.crypto.Merlin">
+						<ramp:property name="org.apache.wss4j.crypto.merlin.keystore.type">JKS</ramp:property>
+						<ramp:property name="org.apache.wss4j.crypto.merlin.file">interop/conf/store.jks</ramp:property>
+						<ramp:property name="org.apache.wss4j.crypto.merlin.keystore.password">password</ramp:property>
 					</ramp:crypto>
 				</ramp:signatureCrypto>
 				<ramp:encryptionCypto>
-					<ramp:crypto provider="org.apache.ws.security.components.crypto.Merlin">
-						<ramp:property name="org.apache.ws.security.crypto.merlin.keystore.type">JKS</ramp:property>
-						<ramp:property name="org.apache.ws.security.crypto.merlin.file">interop/conf/store.jks</ramp:property>
-						<ramp:property name="org.apache.ws.security.crypto.merlin.keystore.password">password</ramp:property>
+					<ramp:crypto provider="org.apache.wss4j.common.crypto.Merlin">
+						<ramp:property name="org.apache.wss4j.crypto.merlin.keystore.type">JKS</ramp:property>
+						<ramp:property name="org.apache.wss4j.crypto.merlin.file">interop/conf/store.jks</ramp:property>
+						<ramp:property name="org.apache.wss4j.crypto.merlin.keystore.password">password</ramp:property>
 					</ramp:crypto>
 				</ramp:encryptionCypto>
 				

@@ -23,7 +23,7 @@ import java.net.HttpURLConnection;
 
 import org.apache.axiom.soap.SOAPEnvelope;
 import org.apache.axiom.soap.SOAPFactory;
-import org.apache.axiom.soap.impl.llom.soap11.SOAP11Factory;
+import org.apache.axiom.om.OMAbstractFactory;
 import org.apache.axis2.addressing.AddressingConstants;
 import org.apache.axis2.addressing.EndpointReference;
 import org.apache.axis2.context.ConfigurationContext;
@@ -135,7 +135,7 @@ public class SequenceClosedFaultTest extends SandeshaTestCase {
 	 */
 	private byte[] getAppMessageAsBytes(String uuid) throws Exception
 	{
-		SOAPFactory factory = new SOAP11Factory();
+		SOAPFactory factory = OMAbstractFactory.getSOAP11Factory();
 		SOAPEnvelope dummyEnvelope = factory.getDefaultEnvelope();
 		
 		// Create a "new" application message

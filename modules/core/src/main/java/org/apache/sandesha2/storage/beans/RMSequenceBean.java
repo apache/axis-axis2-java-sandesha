@@ -132,7 +132,7 @@ public class RMSequenceBean extends RMBean {
 	}
 
 	/**
-	 * @param sequenceId
+	 * @param sequenceID
 	 *            The sequenceId to set.
 	 */
 	public void setSequenceID(String sequenceID) {

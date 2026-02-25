@@ -19,7 +19,7 @@ package org.apache.sandesha2.security.rampart;
 import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
-import org.apache.axiom.om.impl.builder.StAXOMBuilder;
+import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axis2.Constants;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.context.ConfigurationContext;
@@ -48,14 +48,14 @@ import org.apache.sandesha2.security.SecurityManager;
 import org.apache.sandesha2.security.SecurityToken;
 import org.apache.ws.secpolicy.WSSPolicyException;
 import org.apache.ws.secpolicy.model.SecureConversationToken;
-import org.apache.ws.security.WSConstants;
-import org.apache.ws.security.WSDerivedKeyTokenPrincipal;
-import org.apache.ws.security.WSSecurityEngineResult;
-import org.apache.ws.security.conversation.ConversationConstants;
-import org.apache.ws.security.handler.WSHandlerConstants;
-import org.apache.ws.security.handler.WSHandlerResult;
-import org.apache.ws.security.message.token.Reference;
-import org.apache.ws.security.message.token.SecurityTokenReference;
+import org.apache.wss4j.dom.WSConstants;
+import org.apache.wss4j.common.principal.WSDerivedKeyTokenPrincipal;
+import org.apache.wss4j.dom.engine.WSSecurityEngineResult;
+import org.apache.wss4j.common.derivedKey.ConversationConstants;
+import org.apache.wss4j.dom.handler.WSHandlerConstants;
+import org.apache.wss4j.dom.handler.WSHandlerResult;
+import org.apache.wss4j.common.token.Reference;
+import org.apache.wss4j.common.token.SecurityTokenReference;
 
 import javax.xml.namespace.QName;
 
@@ -352,8 +352,7 @@ public class RampartBasedSecurityManager extends SecurityManager {
 	}
 
 	private OMElement convertOMElement(OMFactory fac, OMElement elem) {
-		return new StAXOMBuilder(fac, elem.getXMLStreamReader())
-				.getDocumentElement();
+		return OMXMLBuilderFactory.createStAXOMBuilder(elem.getXMLStreamReader()).getDocumentElement();
 	}
 
 	public void applySecurityToken(SecurityToken token,

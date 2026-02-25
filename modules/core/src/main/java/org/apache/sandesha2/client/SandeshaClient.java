@@ -1322,7 +1322,7 @@ public class SandeshaClient {
 	 * The method will return null if no exception has been encountered.
 	 * Errors may be transient and maybe out of date.  To check the validity of the
 	 * error, check the timestamp from which the error was encountered 
-	 * @see getLastSendTimestamp .
+	 * @see getLastSendErrorTimestamp .
 	 * 
 	 * @param serviceClient
 	 * @return

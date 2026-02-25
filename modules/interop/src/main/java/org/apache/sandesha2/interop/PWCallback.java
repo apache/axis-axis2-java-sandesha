@@ -16,7 +16,7 @@
 
 package org.apache.sandesha2.interop;
 
-import org.apache.ws.security.WSPasswordCallback;
+import org.apache.wss4j.common.ext.WSPasswordCallback;
 
 import javax.security.auth.callback.Callback;
 import javax.security.auth.callback.CallbackHandler;
@@ -106,7 +106,7 @@ public class PWCallback implements CallbackHandler {
 
                  */
 
-                if (pc.getUsage() == WSPasswordCallback.USERNAME_TOKEN_UNKNOWN) {
+                if (pc.getUsage() == WSPasswordCallback.USERNAME_TOKEN) {
 
                     if(pc.getIdentifier().equals("Ron") && pc.getPassword().equals("noR")) {
 
@@ -144,7 +144,7 @@ public class PWCallback implements CallbackHandler {
 
                  */
 
-                if (pc.getUsage() == WSPasswordCallback.KEY_NAME) {
+                if (pc.getUsage() == WSPasswordCallback.SECRET_KEY) {
 
                     pc.setKey(key);
 

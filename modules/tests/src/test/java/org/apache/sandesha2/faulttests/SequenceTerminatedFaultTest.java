@@ -26,7 +26,7 @@ import java.util.List;
 import org.apache.axiom.soap.SOAP12Constants;
 import org.apache.axiom.soap.SOAPEnvelope;
 import org.apache.axiom.soap.SOAPFactory;
-import org.apache.axiom.soap.impl.llom.soap11.SOAP11Factory;
+import org.apache.axiom.om.OMAbstractFactory;
 import org.apache.axis2.addressing.AddressingConstants;
 import org.apache.axis2.addressing.EndpointReference;
 import org.apache.axis2.client.Options;
@@ -421,7 +421,7 @@ public class SequenceTerminatedFaultTest extends SandeshaTestCase {
 	 */
 	private byte[] getAppMessageAsBytes(String uuid) throws Exception
 	{
-		SOAPFactory factory = new SOAP11Factory();
+		SOAPFactory factory = OMAbstractFactory.getSOAP11Factory();
 		SOAPEnvelope dummyEnvelope = factory.getDefaultEnvelope();
 		
 		// Create a "new" application message
@@ -470,7 +470,7 @@ public class SequenceTerminatedFaultTest extends SandeshaTestCase {
 	 */
 	private byte[] getCloseMessageAsBytes(String uuid) throws Exception
 	{
-		SOAPFactory factory = new SOAP11Factory();
+		SOAPFactory factory = OMAbstractFactory.getSOAP11Factory();
 		SOAPEnvelope dummyEnvelope = factory.getDefaultEnvelope();
 		
 		// Create a "new" application message
@@ -521,7 +521,7 @@ public class SequenceTerminatedFaultTest extends SandeshaTestCase {
 	 */
 	private byte[] getAckRequestMessageAsBytes(String uuid) throws Exception
 	{
-		SOAPFactory factory = new SOAP11Factory();
+		SOAPFactory factory = OMAbstractFactory.getSOAP11Factory();
 		SOAPEnvelope dummyEnvelope = factory.getDefaultEnvelope();
 		
 		// Create a "new" application message

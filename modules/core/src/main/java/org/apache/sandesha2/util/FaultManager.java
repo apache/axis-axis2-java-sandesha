@@ -50,7 +50,7 @@ import org.apache.axis2.description.AxisService;
 import org.apache.axis2.engine.AxisEngine;
 import org.apache.axis2.engine.MessageReceiver;
 import org.apache.axis2.engine.Handler.InvocationResponse;
-import org.apache.axis2.transport.TransportUtils;
+import org.apache.axis2.kernel.TransportUtils;
 import org.apache.axis2.util.CallbackReceiver;
 import org.apache.axis2.util.MessageContextBuilder;
 import org.apache.axis2.wsdl.WSDLConstants;
@@ -87,8 +87,8 @@ public class FaultManager {
 	 * Check weather the LastMessage number has been exceeded and generate the
 	 * fault if it is.
 	 * 
-	 * @param msgCtx
-	 * @return
+	 * @param applicationRMMessage
+	 * @param storageManager
 	 */
 	public static void checkForLastMsgNumberExceeded(RMMsgContext applicationRMMessage, StorageManager storageManager)
 			throws AxisFault {
@@ -151,7 +151,7 @@ public class FaultManager {
 	 * (generates an UnknownSequence fault) (b) message number exceeds a
 	 * predifined limit ( genenrates a Message Number Rollover fault)
 	 * 
-	 * @param msgCtx
+	 * @param rmMessageContext
 	 * @return true if no exception has been thrown and the sequence doesn't exist 
 	 * @throws SandeshaException
 	 */
@@ -213,7 +213,7 @@ public class FaultManager {
 	 * Check weather the Acknowledgement is invalid and generate a fault if it
 	 * is.
 	 * 
-	 * @param msgCtx
+	 * @param ackRMMessageContext
 	 * @return
 	 * @throws SandeshaException
 	 */
@@ -252,7 +252,7 @@ public class FaultManager {
 	 * Makes an InvalidAcknowledgement fault.
 	 * @param rmMsgCtx
 	 * @param storageManager
-	 * @param message
+	 * @param piggybackedMessage
 	 * @throws AxisFault 
 	 */
 	public static void makeInvalidAcknowledgementFault(RMMsgContext rmMsgCtx, 
@@ -414,7 +414,7 @@ public class FaultManager {
 	 * Checks if a sequence is terminated and returns a SequenceTerminated fault.
 	 * @param referenceRMMessage
 	 * @param sequenceID
-	 * @param rmdBean
+	 * @param bean
 	 * @return
 	 * @throws AxisFault 
 	 */
@@ -500,8 +500,6 @@ public class FaultManager {
 	 * @param data - data for the fault
 	 * @param throwable - This tells weather or not it is ok to throw the fault out. I.e. this should not be done when processing 
 	 * 					  piggybacked acks since this will stop the carrier message from being processed.
-	 * @return - The dummy fault to be thrown out.
-	 * 
 	 * @throws AxisFault
 	 */
 	public static void getOrSendFault(RMMsgContext referenceRMMsgContext, FaultData data, boolean throwable, EndpointReference acksToEPR) throws AxisFault {

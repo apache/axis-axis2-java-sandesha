@@ -23,7 +23,7 @@ import java.net.HttpURLConnection;
 
 import org.apache.axiom.soap.SOAPEnvelope;
 import org.apache.axiom.soap.SOAPFactory;
-import org.apache.axiom.soap.impl.llom.soap11.SOAP11Factory;
+import org.apache.axiom.om.OMAbstractFactory;
 import org.apache.axis2.context.ConfigurationContext;
 import org.apache.axis2.context.MessageContext;
 import org.apache.axis2.description.AxisOperation;
@@ -83,7 +83,7 @@ public class UnknownSequenceFaultTest extends SandeshaTestCase {
     // Check that the fault message isn't null
     assertNotNull(message);
     
-    // Check that the response contains the wsrm:CreateSequenceRefused tag    
+    // Check that the response contains the wsrm:UnknownSequence tag    
     assertTrue(message.indexOf("wsrm:UnknownSequence") > -1);
     
     // Check that the <wsrm:Identifier>seqID</wsrm:Identifier> matches the sequence ID specified
@@ -104,7 +104,7 @@ public class UnknownSequenceFaultTest extends SandeshaTestCase {
 	 */
 	private byte[] getAppMessageAsBytes(String uuid) throws Exception
 	{
-		SOAPFactory factory = new SOAP11Factory();
+		SOAPFactory factory = OMAbstractFactory.getSOAP11Factory();
 		SOAPEnvelope dummyEnvelope = factory.getDefaultEnvelope();
 		
 		// Create a "new" application message
