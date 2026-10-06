@@ -30,7 +30,7 @@ import org.apache.axis2.context.ConfigurationContext;
 import org.apache.axis2.context.MessageContext;
 import org.apache.axis2.context.OperationContext;
 import org.apache.axis2.description.AxisModule;
-import org.apache.axis2.transport.RequestResponseTransport;
+import org.apache.axis2.kernel.RequestResponseTransport;
 import org.apache.axis2.wsdl.WSDLConstants;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

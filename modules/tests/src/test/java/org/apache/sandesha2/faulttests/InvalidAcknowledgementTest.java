@@ -23,8 +23,8 @@ import java.net.HttpURLConnection;
 
 import org.apache.axiom.soap.SOAPEnvelope;
 import org.apache.axiom.soap.SOAPFactory;
-import org.apache.axiom.soap.impl.llom.soap11.SOAP11Factory;
-import org.apache.axiom.soap.impl.llom.soap12.SOAP12Factory;
+import org.apache.axiom.om.OMAbstractFactory;
+
 import org.apache.axis2.addressing.AddressingConstants;
 import org.apache.axis2.addressing.EndpointReference;
 import org.apache.axis2.context.ConfigurationContext;
@@ -184,10 +184,10 @@ public class InvalidAcknowledgementTest extends SandeshaTestCase {
 		
 		SOAPFactory factory = null;
 		if(soap12){
-			factory = new SOAP12Factory();
+			factory = OMAbstractFactory.getSOAP12Factory();
 		}
 		else{
-			factory = new SOAP11Factory();
+			factory = OMAbstractFactory.getSOAP11Factory();
 		}
 		
 		OutputStream tmpOut2 = connection.getOutputStream();
@@ -278,10 +278,10 @@ public class InvalidAcknowledgementTest extends SandeshaTestCase {
 		OutputStream tmpOut2 = connection.getOutputStream();
 		SOAPFactory factory = null;
 		if(soap12){
-			factory = new SOAP12Factory();
+			factory = OMAbstractFactory.getSOAP12Factory();
 		}
 		else{
-			factory = new SOAP11Factory();
+			factory = OMAbstractFactory.getSOAP11Factory();
 		}
 		
 		byte ar[] = null;

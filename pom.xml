@@ -36,9 +36,9 @@
         guide for more information on using Sandesha2. Read Sandesha2 Architecture guide to see how Sandesha2 works
         internally.
     </description>
-    <version>1.7.0-SNAPSHOT</version>
+    <version>2.0.0-SNAPSHOT</version>
     <name>Apache Sandesha</name>
-    <url>http://axis.apache.org/axis2/java/sandesha/</url>
+    <url>https://axis.apache.org/axis2/java/sandesha/</url>
 
     <issueManagement>
         <system>JIRA</system>
@@ -51,9 +51,9 @@
             <subscribe>java-dev-subscribe@axis.apache.org</subscribe>
             <unsubscribe>java-dev-unsubscribe@axis.apache.org</unsubscribe>
             <post>java-dev@axis.apache.org</post>
-            <archive>http://mail-archives.apache.org/mod_mbox/axis-java-dev/</archive>
+            <archive>https://mail-archives.apache.org/mod_mbox/axis-java-dev/</archive>
             <otherArchives>
-                <otherArchive>http://markmail.org/search/list:org.apache.ws.axis-dev</otherArchive>
+                <otherArchive>https://markmail.org/search/list:org.apache.ws.axis-dev</otherArchive>
             </otherArchives>
         </mailingList>
         <mailingList>
@@ -61,9 +61,9 @@
             <subscribe>java-user-subscribe@axis.apache.org</subscribe>
             <unsubscribe>java-user-unsubscribe@axis.apache.org</unsubscribe>
             <post>java-user@axis.apache.org</post>
-            <archive>http://mail-archives.apache.org/mod_mbox/axis-java-user/</archive>
+            <archive>https://mail-archives.apache.org/mod_mbox/axis-java-user/</archive>
             <otherArchives>
-                <otherArchive>http://markmail.org/search/list:org.apache.ws.axis-user</otherArchive>
+                <otherArchive>https://markmail.org/search/list:org.apache.ws.axis-user</otherArchive>
             </otherArchives>
         </mailingList>
     </mailingLists>
@@ -87,7 +87,7 @@
             <id>jaliya</id>
             <email>jaliya AT opensource.lk</email>
             <organization>Indiana University, USA</organization>
-            <url>http://www.apache.org/~jaliya</url>
+            <url>https://www.apache.org/~jaliya</url>
         </developer>
         <developer>
             <name>Sanjiva Weerawarana</name>
@@ -134,6 +134,13 @@
                         </goals>
                         <configuration>
                             <rules>
+                                <requireMavenVersion>
+                                    <version>3.6.0</version>
+                                </requireMavenVersion>
+                                <requireJavaVersion>
+                                    <!-- We require Java 17+ for the build, supporting up to Java 25 -->
+                                     <version>[17,26)</version>
+                                </requireJavaVersion>
                                 <requireNoRepositories>
                                     <message>The POM must not include repository definitions since non Apache repositories threaten the build stability.</message>
                                     <banRepositories>true</banRepositories>
@@ -151,22 +158,23 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.0</version>
+                <version>3.15.0</version>
                 <configuration>
-                    <source>1.5</source>
-                    <target>1.5</target>
+                    <source>17</source>
+                    <target>17</target>
                 </configuration>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.11</version>
+                <version>3.5.4</version>
             </plugin>
             
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.12.0</version>
                 <executions>
                     <execution>
                         <id>site-javadoc</id>
@@ -199,6 +207,9 @@
                         </goals>
                         <configuration>
                             <excludes>
+                                <exclude>.git/</exclude>
+                                <exclude>.gitignore/</exclude>
+                                <exclude>.vscode/</exclude>
                                 <exclude>dependency-reduced-pom.xml</exclude>
                             </excludes>
                         </configuration> 
@@ -235,19 +246,12 @@
                              phase is not executed, then the current build will pick up artifacts
                              from a previous build. -->
                         <preparationGoals>clean install</preparationGoals>
+                        <tagNameFormat>v@{project.version}</tagNameFormat>
                     </configuration>
                 </plugin>
                 <plugin>
                     <artifactId>maven-assembly-plugin</artifactId>
-                    <version>2.2-beta-5</version>
-                    <configuration>
-                        <!-- Workaround for MASSEMBLY-422 / MASSEMBLY-449 -->
-                        <archiverConfig>
-                            <fileMode>420</fileMode> <!-- 420(dec) = 644(oct) -->
-                            <directoryMode>493</directoryMode> <!-- 493(dec) = 755(oct) -->
-                            <defaultDirectoryMode>493</defaultDirectoryMode>
-                        </archiverConfig>
-                    </configuration>
+                    <version>3.8.0</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -300,15 +304,16 @@
     </reporting>
     
     <scm>
-        <connection>scm:svn:http://svn.apache.org/repos/asf/axis/axis2/java/sandesha/trunk</connection>
-        <developerConnection>scm:svn:https://svn.apache.org/repos/asf/axis/axis2/java/sandesha/trunk</developerConnection>
-        <url>http://svn.apache.org/viewvc/axis/axis2/java/sandesha/trunk</url>
+        <connection>scm:git:https://gitbox.apache.org/repos/asf/axis-axis2-java-sandesha.git</connection>
+        <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/axis-axis2-java-sandesha.git</developerConnection>
+        <url>https://gitbox.apache.org/repos/asf/axis-axis2-java-sandesha.git;a=summary</url>
+        <tag>HEAD</tag>
     </scm>
 
     <distributionManagement>
         <site>
             <id>site</id>
-            <url>scm:svn:https://svn.apache.org/repos/asf/axis/site/axis2/java/sandesha</url>
+            <url>scm:git:https://gitbox.apache.org/repos/asf/axis-site.git</url>
         </site>
     </distributionManagement>
     
@@ -316,9 +321,10 @@
         <pluginRepository>
             <id>apache.snapshots</id>
             <name>Apache Snapshot Repository</name>
-            <url>http://repository.apache.org/snapshots</url>
+            <url>https://repository.apache.org/snapshots</url>
             <snapshots>
                 <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
             </snapshots>
             <releases>
                 <enabled>false</enabled>
@@ -419,6 +425,16 @@
             </dependency>
             <dependency>
                 <groupId>org.apache.axis2</groupId>
+                <artifactId>axis2-transport-http</artifactId>
+                <version>${axis2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.axis2</groupId>
+                <artifactId>axis2-jaxws</artifactId>
+                <version>${axis2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.axis2</groupId>
                 <artifactId>axis2-adb</artifactId>
                 <version>${axis2.version}</version>
             </dependency>
@@ -477,16 +493,16 @@
     </modules>
 
     <properties>
-        <axis2.version>1.7.0-SNAPSHOT</axis2.version>
-        <rampart.version>1.7.0-SNAPSHOT</rampart.version>
-        <axiom.version>1.2.15-SNAPSHOT</axiom.version>
+        <axis2.version>2.0.0</axis2.version>
+        <rampart.version>2.0.0-SNAPSHOT</rampart.version>
+        <axiom.version>2.0.0</axiom.version>
         <commons.logging.version>1.1.1</commons.logging.version>
         <junit.version>3.8.2</junit.version>        
         <log4j.version>1.2.15</log4j.version>
         
         <!-- This variable is used in some Xdocs and is substituted using Velocity. Note that
              we can't use the project.version variable directly because of the dot. See
-             http://maven.apache.org/plugins/maven-site-plugin/examples/creating-content.html -->
+             https://maven.apache.org/plugins/maven-site-plugin/examples/creating-content.html -->
         <sandesha2_version>${project.version}</sandesha2_version>
     </properties>
 </project>

@@ -81,9 +81,8 @@ public class RMMsgCreator {
 	/**
 	 * Create a new CreateSequence message.
 	 *
+	 * @param rmsBean
 	 * @param applicationRMMsg
-	 * @param internalSequenceId
-	 * @param acksToEPR
 	 * @return
 	 * @throws SandeshaException
 	 */
@@ -328,8 +327,7 @@ public class RMMsgCreator {
 	 * Create a new CreateSequenceResponse message.
 	 * 
 	 * @param createSeqMessage
-	 * @param outMessage
-	 * @param newSequenceID
+	 * @param rmSequenceBean
 	 * @return
 	 * @throws AxisFault
 	 */

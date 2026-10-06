@@ -21,7 +21,7 @@
     <parent>
         <groupId>org.apache.sandesha2</groupId>
         <artifactId>sandesha2-parent</artifactId>
-        <version>1.7.0-SNAPSHOT</version>
+        <version>2.0.0-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
@@ -33,12 +33,12 @@
 
     <!-- This needs to be set explicitly because the project structure implies that the Maven calculated defaults are wrong -->
     <scm>
-        <connection>scm:svn:http://svn.apache.org/repos/asf/axis/axis2/java/sandesha/trunk/modules/distribution</connection>
-        <developerConnection>scm:svn:https://svn.apache.org/repos/asf/axis/axis2/java/sandesha/trunk/modules/distribution</developerConnection>
-        <url>http://svn.apache.org/viewvc/axis/axis2/java/sandesha/trunk/modules/distribution</url>
+        <connection>scm:git:https://gitbox.apache.org/repos/asf/axis-axis2-java-sandesha.git/tree/master/modules/distribution</connection>
+        <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/axis-axis2-java-sandesha.git/tree/master/modules/distribution</developerConnection>
+        <url>https://gitbox.apache.org/repos/asf/axis-axis2-java-sandesha.git/tree/master/modules/distribution</url>
     </scm>
     <!-- This also needs to be set explicitly because the Maven calculated URL would point to nowhere -->
-    <url>http://axis.apache.org/axis2/java/sandesha/</url>
+    <url>https://axis.apache.org/axis2/java/sandesha/</url>
 
     <dependencies>
         <dependency>
@@ -119,7 +119,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.5</version>
+                <version>3.12.0</version>
                 <executions>
                     <execution>
                         <id>javadoc-generation</id>
@@ -130,6 +130,10 @@
                         <configuration>
                             <sourcepath>target/sources</sourcepath>
                             <excludePackageNames>org.tempuri</excludePackageNames>
+                            <sourceFileExcludes>
+                                <sourceFileExclude>**/org/apache/sandesha2/interop/RMInteropServiceSkeleton.java</sourceFileExclude>
+                                <sourceFileExclude>**/org/apache/sandesha2/interop/RMInteropServiceStub.java</sourceFileExclude>
+                            </sourceFileExcludes>
                             <reportOutputDirectory>${project.build.directory}/docs/apidocs</reportOutputDirectory>
                             <windowtitle>Sandesha2 API</windowtitle>
                             <doctitle>Sandesha2</doctitle>

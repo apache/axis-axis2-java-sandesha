@@ -49,11 +49,6 @@ public class MsgInitializer {
 	 * things like rm version and message type as well.
 	 * 
 	 * @param ctx
-	 * @param assumedRMNamespace
-	 *            this is used for validation (to find out weather the
-	 *            rmNamespace of the current message is equal to the regietered
-	 *            rmNamespace of the sequence). If null validation will not
-	 *            happen.
 	 * 
 	 * @return
 	 * @throws SandeshaException

@@ -94,10 +94,10 @@ public class Scenario_1_3 {
 		ServiceClient serviceClient = new ServiceClient (configurationContext,null);		
 		serviceClient.setOptions(clientOptions);
 		
-		clientOptions.setProperty(SandeshaClientConstants.MESSAGE_NUMBER,new Long(1));
+		clientOptions.setProperty(SandeshaClientConstants.MESSAGE_NUMBER, 1L);
 		serviceClient.fireAndForget(getPingOMBlock("ping1"));
 		
-		clientOptions.setProperty(SandeshaClientConstants.MESSAGE_NUMBER,new Long(3));
+		clientOptions.setProperty(SandeshaClientConstants.MESSAGE_NUMBER, 3L);
 		serviceClient.fireAndForget(getPingOMBlock("ping3"));
 		
 		boolean complete = false;
@@ -155,12 +155,12 @@ public class Scenario_1_3 {
 		Options options = stubServiceClient.getOptions();
 		setUpOptions(options);
 		
-		options.setProperty(SandeshaClientConstants.MESSAGE_NUMBER,new Long(1));
+		options.setProperty(SandeshaClientConstants.MESSAGE_NUMBER, 1L);
 		Ping ping = new Ping ();
 		ping.setText("ping1");
 		stub.ping(ping);
 		
-		options.setProperty(SandeshaClientConstants.MESSAGE_NUMBER,new Long(3));
+		options.setProperty(SandeshaClientConstants.MESSAGE_NUMBER, 3L);
 		ping = new Ping ();
 		ping.setText("ping2");
 		stub.ping(ping);

@@ -56,7 +56,8 @@ public class AcknowledgementManager {
 	 * Piggybacks any available acks of the same sequence to the given
 	 * application message.
 	 * 
-	 * @param applicationRMMsgContext
+	 * @param rmMessageContext
+	 * @param storageManager
 	 * @throws SandeshaException
 	 */
 	public static void piggybackAcksIfPresent(RMMsgContext rmMessageContext, StorageManager storageManager) throws SandeshaException {
@@ -163,10 +164,10 @@ public class AcknowledgementManager {
 	/**
 	 * 
 	 * @param referenceRMMessage
-	 * @param sequencePropertyKey
+	 * @param rmdBean
 	 * @param sequenceId
 	 * @param storageManager
-	 * @param makeResponse
+	 * @param serverSide
 	 *            Some work will be done to make the new ack message the
 	 *            response of the reference message.
 	 * @return

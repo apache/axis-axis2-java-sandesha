@@ -31,7 +31,7 @@ import java.util.Map.Entry;
 import javax.xml.namespace.QName;
 
 import org.apache.axiom.om.OMElement;
-import org.apache.axiom.om.util.CopyUtils;
+import org.apache.axiom.soap.SOAPCloneOptions;
 import org.apache.axiom.soap.SOAP11Constants;
 import org.apache.axiom.soap.SOAP12Constants;
 import org.apache.axiom.soap.SOAPEnvelope;
@@ -133,10 +133,9 @@ public class SandeshaUtil {
 	/**
 	 * Used to convert a RangeString into a set of AcknowledgementRanges.
 	 * 
-	 * @param msgNoStr
-	 * @param factory
+	 * @param completedMessageRanges
+	 * @param rmNamespaceValue
 	 * @return
-	 * @throws SandeshaException
 	 */
 	public static ArrayList<Range> getAckRangeArrayList(RangeString completedMessageRanges, String rmNamespaceValue) {
 
@@ -1017,7 +1016,11 @@ public class SandeshaUtil {
             log.debug("Enter: SandeshaUtil::copySOAPEnvelope");
         
         // Delegate to the CopuUtils provided by Axiom
-        SOAPEnvelope targetEnv = CopyUtils.copy(sourceEnv);
+		SOAPCloneOptions options = new SOAPCloneOptions();
+		options.setFetchBlobs(true);
+		options.setPreserveModel(true);
+		options.setCopyOMDataSources(true);
+		SOAPEnvelope targetEnv = (SOAPEnvelope) sourceEnv.clone(options);
         
         if (LoggingControl.isAnyTracingEnabled() && log.isDebugEnabled()) 
             log.debug("Exit: SandeshaUtil::copySOAPEnvelope");            

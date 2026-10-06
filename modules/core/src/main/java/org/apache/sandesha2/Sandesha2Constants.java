@@ -71,30 +71,30 @@ public interface Sandesha2Constants {
 		
 		public interface QNames {
 			// Headers
-			QName Sequence = new QName(NS_URI, WSRM_COMMON.SEQUENCE);
-			QName SequenceAck = new QName(NS_URI, WSRM_COMMON.SEQUENCE_ACK);
-			QName AckRequest = new QName(NS_URI, WSRM_COMMON.ACK_REQUESTED);
-			QName SequenceFault = new QName(NS_URI, WSRM_COMMON.SEQUENCE_FAULT);
+			QName Sequence = new QName(NS_URI, WSRM_COMMON.SEQUENCE, "wsrm");
+			QName SequenceAck = new QName(NS_URI, WSRM_COMMON.SEQUENCE_ACK, "wsrm");
+			QName AckRequest = new QName(NS_URI, WSRM_COMMON.ACK_REQUESTED, "wsrm");
+			QName SequenceFault = new QName(NS_URI, WSRM_COMMON.SEQUENCE_FAULT, "wsrm");
 			
 			// Body elements
-			QName CreateSequence = new QName(NS_URI, WSRM_COMMON.CREATE_SEQUENCE);
-			QName CreateSequenceResponse = new QName(NS_URI, WSRM_COMMON.CREATE_SEQUENCE_RESPONSE);
-			QName CloseSequence = new QName(NS_URI, WSRM_COMMON.CLOSE_SEQUENCE);
-			QName CloseSequenceResponse = new QName(NS_URI, WSRM_COMMON.CLOSE_SEQUENCE_RESPONSE);
-			QName TerminateSequence = new QName(NS_URI, WSRM_COMMON.TERMINATE_SEQUENCE);
-			QName TerminateSequenceResponse = new QName(NS_URI, WSRM_COMMON.TERMINATE_SEQUENCE_RESPONSE);
+			QName CreateSequence = new QName(NS_URI, WSRM_COMMON.CREATE_SEQUENCE, "wsrm");
+			QName CreateSequenceResponse = new QName(NS_URI, WSRM_COMMON.CREATE_SEQUENCE_RESPONSE, "wsrm");
+			QName CloseSequence = new QName(NS_URI, WSRM_COMMON.CLOSE_SEQUENCE, "wsrm");
+			QName CloseSequenceResponse = new QName(NS_URI, WSRM_COMMON.CLOSE_SEQUENCE_RESPONSE, "wsrm");
+			QName TerminateSequence = new QName(NS_URI, WSRM_COMMON.TERMINATE_SEQUENCE, "wsrm");
+			QName TerminateSequenceResponse = new QName(NS_URI, WSRM_COMMON.TERMINATE_SEQUENCE_RESPONSE, "wsrm");
 			
 			// Other elements
-			QName Identifier = new QName(NS_URI, WSRM_COMMON.IDENTIFIER);
+			QName Identifier = new QName(NS_URI, WSRM_COMMON.IDENTIFIER, "wsrm");
 
 			// Fault elements
-			QName UnknownSequence = new QName(NS_URI, SOAPFaults.Subcodes.UNKNOWN_SEQUENCE);
-			QName MessageNumberRollover = new QName(NS_URI, SOAPFaults.Subcodes.MESSAGE_NUMBER_ROLEOVER);
-			QName InvalidAcknowledgement = new QName(NS_URI, SOAPFaults.Subcodes.INVALID_ACKNOWLEDGEMENT);
-			QName CreateSequenceRefused = new QName(NS_URI, SOAPFaults.Subcodes.CREATE_SEQUENCE_REFUSED);
-			QName LastMessageNoExceeded = new QName(NS_URI, SOAPFaults.Subcodes.LAST_MESSAGE_NO_EXCEEDED);
-			QName SequenceClosed = new QName(NS_URI, SOAPFaults.Subcodes.SEQUENCE_CLOSED);
-			QName SequenceTerminated = new QName(NS_URI, SOAPFaults.Subcodes.SEQUENCE_TERMINATED);
+			QName UnknownSequence = new QName(NS_URI, SOAPFaults.Subcodes.UNKNOWN_SEQUENCE, "wsrm");
+			QName MessageNumberRollover = new QName(NS_URI, SOAPFaults.Subcodes.MESSAGE_NUMBER_ROLEOVER, "wsrm");
+			QName InvalidAcknowledgement = new QName(NS_URI, SOAPFaults.Subcodes.INVALID_ACKNOWLEDGEMENT, "wsrm");
+			QName CreateSequenceRefused = new QName(NS_URI, SOAPFaults.Subcodes.CREATE_SEQUENCE_REFUSED, "wsrm");
+			QName LastMessageNoExceeded = new QName(NS_URI, SOAPFaults.Subcodes.LAST_MESSAGE_NO_EXCEEDED, "wsrm");
+			QName SequenceClosed = new QName(NS_URI, SOAPFaults.Subcodes.SEQUENCE_CLOSED, "wsrm");
+			QName SequenceTerminated = new QName(NS_URI, SOAPFaults.Subcodes.SEQUENCE_TERMINATED, "wsrm");
 		}
 	}
 	
@@ -140,35 +140,35 @@ public interface Sandesha2Constants {
 		
 		public interface QNames {
 			// Headers
-			QName Sequence = new QName(NS_URI, WSRM_COMMON.SEQUENCE);
-			QName SequenceAck = new QName(NS_URI, WSRM_COMMON.SEQUENCE_ACK);
-			QName AckRequest = new QName(NS_URI, WSRM_COMMON.ACK_REQUESTED);
-			QName SequenceFault = new QName(NS_URI, WSRM_COMMON.SEQUENCE_FAULT);
-			QName UsesSequenceSTR = new QName(NS_URI, WSRM_COMMON.USES_SEQUENCE_STR);
-			QName MessagePending = new QName(MC_NS_URI, WSRM_COMMON.MESSAGE_PENDING);
+			QName Sequence = new QName(NS_URI, WSRM_COMMON.SEQUENCE, "wsrm");
+			QName SequenceAck = new QName(NS_URI, WSRM_COMMON.SEQUENCE_ACK, "wsrm");
+			QName AckRequest = new QName(NS_URI, WSRM_COMMON.ACK_REQUESTED, "wsrm");
+			QName SequenceFault = new QName(NS_URI, WSRM_COMMON.SEQUENCE_FAULT, "wsrm");
+			QName UsesSequenceSTR = new QName(NS_URI, WSRM_COMMON.USES_SEQUENCE_STR, "wsrm");
+			QName MessagePending = new QName(MC_NS_URI, WSRM_COMMON.MESSAGE_PENDING, "wsmc");
 			
 			// Body elements
-			QName CreateSequence = new QName(NS_URI, WSRM_COMMON.CREATE_SEQUENCE);
-			QName CreateSequenceResponse = new QName(NS_URI, WSRM_COMMON.CREATE_SEQUENCE_RESPONSE);
-			QName CloseSequence = new QName(NS_URI, WSRM_COMMON.CLOSE_SEQUENCE);
-			QName CloseSequenceResponse = new QName(NS_URI, WSRM_COMMON.CLOSE_SEQUENCE_RESPONSE);
-			QName TerminateSequence = new QName(NS_URI, WSRM_COMMON.TERMINATE_SEQUENCE);
-			QName TerminateSequenceResponse = new QName(NS_URI, WSRM_COMMON.TERMINATE_SEQUENCE_RESPONSE);
-			QName MakeConnection = new QName(MC_NS_URI, WSRM_COMMON.MAKE_CONNECTION);
+			QName CreateSequence = new QName(NS_URI, WSRM_COMMON.CREATE_SEQUENCE, "wsrm");
+			QName CreateSequenceResponse = new QName(NS_URI, WSRM_COMMON.CREATE_SEQUENCE_RESPONSE, "wsrm");
+			QName CloseSequence = new QName(NS_URI, WSRM_COMMON.CLOSE_SEQUENCE, "wsrm");
+			QName CloseSequenceResponse = new QName(NS_URI, WSRM_COMMON.CLOSE_SEQUENCE_RESPONSE, "wsrm");
+			QName TerminateSequence = new QName(NS_URI, WSRM_COMMON.TERMINATE_SEQUENCE, "wsrm");
+			QName TerminateSequenceResponse = new QName(NS_URI, WSRM_COMMON.TERMINATE_SEQUENCE_RESPONSE, "wsrm");
+			QName MakeConnection = new QName(MC_NS_URI, WSRM_COMMON.MAKE_CONNECTION, "wsmc");
 			
 			// Other elements
-			QName Identifier = new QName(NS_URI, WSRM_COMMON.IDENTIFIER);
+			QName Identifier = new QName(NS_URI, WSRM_COMMON.IDENTIFIER, "wsrm");
 			
 			// Fault elements
-			QName UnknownSequence = new QName(NS_URI, SOAPFaults.Subcodes.UNKNOWN_SEQUENCE);
-			QName MessageNumberRollover = new QName(NS_URI, SOAPFaults.Subcodes.MESSAGE_NUMBER_ROLEOVER);
-			QName InvalidAcknowledgement = new QName(NS_URI, SOAPFaults.Subcodes.INVALID_ACKNOWLEDGEMENT);
-			QName CreateSequenceRefused = new QName(NS_URI, SOAPFaults.Subcodes.CREATE_SEQUENCE_REFUSED);
-			QName LastMessageNoExceeded = new QName(NS_URI, SOAPFaults.Subcodes.LAST_MESSAGE_NO_EXCEEDED);
-			QName SequenceClosed = new QName(NS_URI, SOAPFaults.Subcodes.SEQUENCE_CLOSED);
-			QName SequenceTerminated = new QName(NS_URI, SOAPFaults.Subcodes.SEQUENCE_TERMINATED);
-			QName UnsupportedSelection = new QName(MC_NS_URI, SOAPFaults.Subcodes.UNSUPPORTED_SELECTION);
-			QName MissingSelection = new QName(MC_NS_URI, SOAPFaults.Subcodes.MISSING_SELECTION);
+			QName UnknownSequence = new QName(NS_URI, SOAPFaults.Subcodes.UNKNOWN_SEQUENCE, "wsrm");
+			QName MessageNumberRollover = new QName(NS_URI, SOAPFaults.Subcodes.MESSAGE_NUMBER_ROLEOVER, "wsrm");
+			QName InvalidAcknowledgement = new QName(NS_URI, SOAPFaults.Subcodes.INVALID_ACKNOWLEDGEMENT, "wsrm");
+			QName CreateSequenceRefused = new QName(NS_URI, SOAPFaults.Subcodes.CREATE_SEQUENCE_REFUSED, "wsrm");
+			QName LastMessageNoExceeded = new QName(NS_URI, SOAPFaults.Subcodes.LAST_MESSAGE_NO_EXCEEDED, "wsrm");
+			QName SequenceClosed = new QName(NS_URI, SOAPFaults.Subcodes.SEQUENCE_CLOSED, "wsrm");
+			QName SequenceTerminated = new QName(NS_URI, SOAPFaults.Subcodes.SEQUENCE_TERMINATED, "wsrm");
+			QName UnsupportedSelection = new QName(MC_NS_URI, SOAPFaults.Subcodes.UNSUPPORTED_SELECTION, "wsmc");
+			QName MissingSelection = new QName(MC_NS_URI, SOAPFaults.Subcodes.MISSING_SELECTION, "wsmc");
 		}
 	}
 	

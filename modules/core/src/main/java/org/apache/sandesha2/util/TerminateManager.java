@@ -140,7 +140,7 @@ public class TerminateManager {
 	 * complete all the data if InOrder invocation is not sequired.
 	 * 
 	 * @param configContext
-	 * @param sequenceID
+	 * @param sequenceId
 	 * @throws SandeshaException
 	 */
 	public static void cleanReceivingSideOnTerminateMessage(ConfigurationContext configContext, String sequenceId,
@@ -190,7 +190,7 @@ public class TerminateManager {
 	 * data left by the above method. This had to be called after the Invocation
 	 * of the Last Message.
 	 * 
-	 * @param sequenceID
+	 * @param sequenceId
 	 * @throws SandeshaException
 	 */
 	public static void cleanReceivingSideAfterInvocation(String sequenceId,
@@ -228,8 +228,8 @@ public class TerminateManager {
 	 * This is called by the sending side to clean data related to a sequence.
 	 * e.g. after sending the TerminateSequence message.
 	 * 
-	 * @param configContext
-	 * @param sequenceID
+	 * @param rmsBean
+	 * @param transaction
 	 * @throws SandeshaException
 	 * 
 	 * @return true if the reallocation happened sucessfully
